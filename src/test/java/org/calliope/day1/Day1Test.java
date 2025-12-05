@@ -1,5 +1,8 @@
-package org.calliope.day1.dial;
+package org.calliope.day1;
 
+import org.calliope.day1.dial.Dial;
+import org.calliope.day1.dial.Rotation;
+import org.calliope.day1.dial.RotationParser;
 import org.calliope.resources.FileParser;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -8,7 +11,7 @@ import org.junit.jupiter.api.Test;
 import java.io.File;
 import java.util.List;
 
-class DialTest {
+class Day1Test {
 
     @Test
     @DisplayName("Dial Test Example Input")

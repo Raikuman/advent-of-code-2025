@@ -1,7 +1,6 @@
-package org.calliope.day2.id;
+package org.calliope.day2;
 
-import org.calliope.day2.Day2;
-import org.calliope.day2.IdParser;
+import org.calliope.day2.id.Id;
 import org.calliope.resources.FileParser;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -10,7 +9,7 @@ import org.junit.jupiter.api.Test;
 import java.io.File;
 import java.util.List;
 
-class IdTest {
+class Day2Test {
 
     @Test
     @DisplayName("Id Test Example Input")
