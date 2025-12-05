@@ -64,7 +64,7 @@ import java.util.List;
 public class Day1 {
     public static void main(String[] args) {
         List<Rotation> rotations = RotationParser.parseRotations(
-                FileParser.read(new File("aoc/day1/input.txt")));
+                FileParser.readByLine(new File("aoc/day1/input.txt")));
 
         Dial dial = new Dial(50);
 

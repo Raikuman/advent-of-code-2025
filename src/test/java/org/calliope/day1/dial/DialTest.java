@@ -14,7 +14,7 @@ class DialTest {
     @DisplayName("Dial Test Example Input")
     void testDialExampleInput() {
         File testFile = new File("aoc/day1/test1.txt");
-        List<Rotation> rotationList = RotationParser.parseRotations(FileParser.read(testFile));
+        List<Rotation> rotationList = RotationParser.parseRotations(FileParser.readByLine(testFile));
         Dial dial = new Dial(50);
         for  (Rotation rotation : rotationList) {
             dial.rotatePart1(rotation);
@@ -27,7 +27,7 @@ class DialTest {
     @DisplayName("Dial Test Large Rotation")
     void testDialLargeRotation() {
         File testFile = new File("aoc/day1/test2.txt");
-        List<Rotation> rotationList = RotationParser.parseRotations(FileParser.read(testFile));
+        List<Rotation> rotationList = RotationParser.parseRotations(FileParser.readByLine(testFile));
         Dial dial = new Dial(50);
         for  (Rotation rotation : rotationList) {
             dial.rotatePart1(rotation);
@@ -40,7 +40,7 @@ class DialTest {
     @DisplayName("Dial Test Increment On Full Rotation")
     void testDialFullRotation() {
         File testFile = new File("aoc/day1/test1.txt");
-        List<Rotation> rotationList = RotationParser.parseRotations(FileParser.read(testFile));
+        List<Rotation> rotationList = RotationParser.parseRotations(FileParser.readByLine(testFile));
         Dial dial = new Dial(50);
         for  (Rotation rotation : rotationList) {
             dial.rotate(rotation);
@@ -53,7 +53,7 @@ class DialTest {
     @DisplayName("Dial Test Increment On Full Large Rotation")
     void testDialFullLargeRotation() {
         File testFile = new File("aoc/day1/test2.txt");
-        List<Rotation> rotationList = RotationParser.parseRotations(FileParser.read(testFile));
+        List<Rotation> rotationList = RotationParser.parseRotations(FileParser.readByLine(testFile));
         Dial dial = new Dial(50);
         for  (Rotation rotation : rotationList) {
             dial.rotate(rotation);
