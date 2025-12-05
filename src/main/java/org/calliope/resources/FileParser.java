@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FileReader {
+public class FileParser {
 
     public static List<String> read(File file) {
         List<String> lines = new ArrayList<>();

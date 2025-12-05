@@ -53,8 +53,25 @@ Because the dial points at 0 a total of three times during this process, the pas
 Analyze the rotations in your attached document. What's the actual password to open the door?
  */
 
+import org.calliope.day1.dial.Dial;
+import org.calliope.day1.dial.Rotation;
+import org.calliope.day1.dial.RotationParser;
+import org.calliope.resources.FileParser;
+
+import java.io.File;
+import java.util.List;
+
 public class Day1 {
     public static void main(String[] args) {
+        List<Rotation> rotations = RotationParser.parseRotations(
+                FileParser.read(new File("aoc/day1/input.txt")));
 
+        Dial dial = new Dial(50);
+
+        for (Rotation rotation : rotations) {
+            dial.rotate(rotation);
+        }
+
+        System.out.println(dial.getPassword());
     }
 }
