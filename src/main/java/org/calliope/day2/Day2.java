@@ -39,7 +39,7 @@ public class Day2 {
     public static void main(String[] args) {
         File testFile = new File("aoc/day2/input.txt");
         List<Id> idList = IdParser.parseIds(FileParser.readByLine(testFile).getFirst());
-        System.out.println(idSumPart1(idList));
+        System.out.println(idSumPart2(idList));
 
     }
 
@@ -57,6 +57,45 @@ public class Day2 {
                 String first = idString.substring(0, idString.length() / 2);
                 String last = idString.substring(idString.length() / 2);
                 if (first.equals(last)) {
+                    idSum += i;
+                }
+            }
+        }
+
+        return idSum;
+    }
+
+    public static long idSumPart2(List<Id> idList) {
+        long idSum = 0;
+        for (Id id : idList) {
+            for (long i = id.getFirst(); i <= id.getLast(); i++) {
+                String idString = String.valueOf(i);
+
+                // Iterate number of valid pattern length to half of the id
+                boolean invalid = false;
+                for (int j = 1; j < (idString.length() / 2) + 1; j++) {
+                    String pattern = idString.substring(0, j);
+
+                    // Check if the pattern can be used across the id
+                    if (idString.length() % pattern.length() != 0) {
+                        continue;
+                    }
+
+                    // Check each instance of the pattern length on the id
+                    for (int k = 0; k < idString.length() / pattern.length(); k++) {
+                        String targetId = idString.substring(k * pattern.length(), (k + 1) * pattern.length());
+                        //System.out.println("TARGETID " + targetId);
+                        if (!targetId.equals(pattern)) {
+                            break;
+                        }
+
+                        if (k == (idString.length() / pattern.length()) - 1) {
+                            invalid = true;
+                        }
+                    }
+                }
+
+                if (invalid) {
                     idSum += i;
                 }
             }
