@@ -26,9 +26,39 @@ The total output joltage is the sum of the maximum joltage from each bank, so in
 There are many batteries in front of you. Find the maximum joltage possible from each bank; what is the total output joltage?
  */
 
+import org.calliope.resources.FileParser;
+
+import java.io.File;
+import java.util.List;
+
 public class Day3 {
 
     public static void main(String[] args) {
+        File testFile = new File("aoc/day3/input.txt");
+        System.out.println(largestJoltagePart1(FileParser.readByLine(testFile)));
+    }
 
+    public static int largestJoltagePart1(List<String> batteryBanks) {
+        int joltageSum = 0;
+        for (String batteryBank : batteryBanks) {
+            int[] joltage = {-1, -1};
+            for (int i = 0; batteryBank.length() > i; i++) {
+                char c = batteryBank.charAt(i);
+
+                int battery = Character.getNumericValue(c);
+                // Check if first joltage value is less than current battery
+                if (battery > joltage[0] && i < batteryBank.length() - 1) {
+                    joltage[0] = battery;
+                    joltage[1] = -1;
+                } else if (battery > joltage[1]) {
+                    joltage[1] = battery;
+                }
+            }
+
+            // Calculate joltage for current bank
+            joltageSum += (joltage[0] * 10) + joltage[1];
+        }
+
+        return joltageSum;
     }
 }
